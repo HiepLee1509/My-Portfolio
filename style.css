@@ -481,6 +481,13 @@ body {
   width: 100%;
 }
 
+.project-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* preserve original image ratio without cropping */
+  display: block;
+}
+
 .placeholder-image {
   display: flex;
   align-items: center;
