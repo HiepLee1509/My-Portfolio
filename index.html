@@ -1,372 +1,441 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Modern Portfolio - Professional Web Developer">
-    <title>Portfolio | Le Nghia Hiep</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Developer Portfolio | Your Name</title>
 
-        :root {
-            --primary-color: #6366f1;
-            --secondary-color: #8b5cf6;
-            --text-dark: #1f2937;
-            --text-light: #6b7280;
-            --bg-light: #f9fafb;
-            --white: #ffffff;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--bg-light);
-        }
+  <!-- Font Awesome Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 
-        /* Header Styles */
-        header {
-            background-color: var(--white);
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .profile-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .profile-image {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .profile-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .hero-content .subtitle {
-            font-size: 1.5rem;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-content p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-
-        .contact-btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: var(--shadow);
-        }
-
-        .contact-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        /* About Section */
-        .about {
-            background-color: var(--white);
-            padding: 5rem 2rem;
-        }
-
-        .about-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .about h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: var(--text-dark);
-            text-align: center;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .about-card {
-            background-color: var(--bg-light);
-            padding: 2rem;
-            border-radius: 0.5rem;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease;
-        }
-
-        .about-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .about-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .about-card p {
-            color: var(--text-light);
-            line-height: 1.8;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--text-dark);
-            color: var(--white);
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .social-links a {
-            color: var(--white);
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-                padding: 2rem 1rem;
-            }
-
-            .profile-image {
-                width: 300px;
-                height: 300px;
-            }
-
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-
-            .hero-content .subtitle {
-                font-size: 1.2rem;
-            }
-
-            .about h2 {
-                font-size: 2rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            nav {
-                padding: 1rem;
-            }
-
-            .logo {
-                font-size: 1.2rem;
-            }
-
-            .hero {
-                padding: 2rem 1rem;
-            }
-
-            .profile-image {
-                width: 120px;
-                height: 120px;
-            }
-
-            .hero-content h1 {
-                font-size: 1.5rem;
-            }
-
-            .contact-btn {
-                padding: 0.8rem 2rem;
-                font-size: 1rem;
-            }
-        }
-    </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <a href="#" class="logo">Portfolio</a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- About Me Modal -->
+  <div class="modal-overlay" id="aboutModalOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="about-modal-title">
+      <button class="modal-close" id="aboutModalClose" aria-label="Close About Me">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <h2 id="about-modal-title">About Me</h2>
+      <p class="modal-intro">
+        I'm currently an IT Engineering student, but I thrive outside the typical tech bubble.
+         Beyond my coding skills, I'm known for being highly dynamic and possessing excellent communication and soft skills, making me a natural team player.
+          I also balance my technical rigor with a genuine passion for the arts.
+           Oh, and just between us, I'm proof that you can have both brains and good looks in the world of IT!
+      </p>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Hero Section with Profile Image -->
-        <section id="home" class="hero">
-            <div class="profile-container">
-                <div class="profile-image" aria-label="Profile Image Placeholder">
-                    <img src="images\my_pr5_image.jpg" alt="Profile Image">
-                </div>
-            </div>
-            <div class="hero-content">
-                <h1>Le Nghia Hiep</h1>
-                <p class="subtitle">Computer Engineering Student at HUST</p>
-                <p>
-                    Welcome to my portfolio!<br>
-                    I’m passionate about both technology and the arts, with interests ranging from singing🎤 and playing guitar🎸 to staying active through sports. I thrive in presentation, communication, and leadership roles, where I enjoy connecting with others and driving collaborative work. Academically, I focus on AIoT and network communication, exploring how intelligent systems interact and integrate in the modern world.<br>
-                    Thanks for visiting my portfolio — feel free to explore and reach out if you’d like to connect or collaborate!</p>
-                <a href="#contact" class="contact-btn">Get In Touch</a>
-            </div>
-        </section>
+      <div class="modal-section">
+        <h3>Interests & Hobbies</h3>
+        <ul class="modal-list">
+          <li>🎤Singing </li>
+          <li>🎸Playing Guitar </li>
+          <li>📷Photography </li>
+        </ul>
+      </div>
 
-        <!-- About Section -->
-        <section id="about" class="about">
-            <div class="about-container">
-                <h2>About Me</h2>
-                <div class="about-content">
-                    <article class="about-card">
-                        <h3>Background</h3>
-                        <p>I'm a dedicated web developer with a passion for creating innovative digital solutions. With years of experience in modern web technologies, I bring ideas to life through clean code and thoughtful design.</p>
-                    </article>
-                    <article class="about-card">
-                        <h3>Skills</h3>
-                        <p>Proficient in HTML5, CSS3, JavaScript, and modern frameworks. Experienced in responsive design, user experience optimization, and cross-browser compatibility. Always learning and adapting to new technologies.</p>
-                    </article>
-                    <article class="about-card">
-                        <h3>Passion</h3>
-                        <p>I believe in creating web experiences that are not only visually appealing but also accessible and performant. Every project is an opportunity to push boundaries and deliver excellence.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-    </main>
+      <div class="modal-section">
+        <h3>Fun Facts</h3>
+        <ul class="modal-list">
+          <li>⬆️Height: 1.79m</li>
+          <li>💪Weight: 75 kg</li>
+        </ul>
+      </div>
 
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="footer-content">
-            <div class="social-links">
-                <a href="#" aria-label="LinkedIn">🔗</a>
-                <a href="#" aria-label="GitHub">💻</a>
-                <a href="#" aria-label="Twitter">🐦</a>
-                <a href="#" aria-label="Email">✉️</a>
-            </div>
-            <p>&copy; 2025 Le Nghia Hiep. All rights reserved.</p>
+      <div class="modal-section">
+        <h3>Mini Gallery</h3>
+        <div class="modal-gallery">
+          <div class="modal-gallery-item">
+            <img src="images\paparazzi.jpg" alt="hehe test" class="gallery-image">
+          </div>
+          <div class="modal-gallery-item">
+            <img src="images\scg_home.jpg" alt="hehe test" class="gallery-image">
+          </div>
+          <div class="modal-gallery-item">
+            <img src="images\SSU.jpg" alt="hehe test" class="gallery-image">
+          </div>
         </div>
-    </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var contactBtn = document.querySelector('.contact-btn');
-            if (contactBtn) {
-                contactBtn.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    var footer = document.getElementById('contact');
-                    if (footer) {
-                        footer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                });
-            }
-        });
-    </script>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <button class="about-trigger" id="aboutTrigger">
+        <i class="fa-regular fa-user"></i>
+        <span>About Me</span>
+      </button>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero / Landing Section -->
+    <section id="home" class="section hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="hero-kicker">AIoT Engineer</p>
+          <h1>Hi👋,<br> I’m <span class="accent">Le Nghia Hiep</span></h1>
+          <p class="hero-subtitle">
+            I leverage Machine Learning & Deep Learning model to design and implement intelligent IoT solutions,
+             focusing on data processing, predictive modeling, and system optimization.
+          </p>
+
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">
+              <span>View Projects</span> <span class="emoji">🚀</span>
+            </a>
+            <a href="#contact" class="btn btn-outline">
+              <span>Contact</span> <span class="emoji">📧</span>
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            <span><i class="fa-solid fa-building-columns"></i> Hanoi University of Science and Technology</span>
+            <span><i class="fa-solid fa-location-dot"></i> Hanoi, VietNam </span>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <div class="hero-image-card">
+            <img
+              src="images/my_pr5_image.jpg"
+              alt="Profile placeholder"
+              class="hero-img"
+            />
+            <div class="hero-image-badge">
+              <i class="fa-solid fa-code"></i>
+              <span>Building clean & modern UIs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills & Experience Section -->
+    <section id="skills" class="section section-alt">
+      <div class="container">
+        <header class="section-header">
+          <h2>Skills & Experience</h2>
+          <p>
+            A blend of embedded systems programming, AI algorithms, web/app development
+            and robust cloud/edge computing to develop smart, connected solutions.
+          </p>
+        </header>
+
+        <div class="skills-layout">
+          <!-- Skills Grid -->
+          <div class="skills-column">
+            <h3 class="skills-category">Core Languages</h3>
+            <div class="skills-grid">
+              <article class="skill-card">
+                <i class="fa-solid fa-code"></i>
+                <div>
+                  <h4>Python</h4>
+                  <p>Statistical computing, ML libraries.</p>
+                </div>
+              </article>
+              <article class="skill-card">
+                <i class="fa-solid fa-code"></i>
+                <div>
+                  <h4>C/C++</h4>
+                  <p>Low-level programming, embedded systems, Arduino.</p>
+                </div>
+              </article>
+              <article class="skill-card">
+                <i class="fa-solid fa-code"></i>
+                <div>
+                  <h4>JS/Node.js</h4>
+                  <p>Server-side IoT application logic, data processing, MQTT brokers.</p>
+                </div>
+            </div>
+
+            <h3 class="skills-category">Frameworks & Libraries</h3>
+            <div class="skills-grid">
+              <article class="skill-card">
+                <i class="fa-solid fa-code"></i>
+                <div>
+                  <h4>TensorFlow / PyTorch</h4>
+                  <p>Models for edge devices (NLP).</p>
+                </div>
+              </article>
+              <article class="skill-card">
+                <i class="fa-solid fa-code"></i>
+                <div>
+                  <h4>Scikit-learn</h4>
+                  <p>Classic ML for predictive maintenance or anomaly detection.</p>
+                </div>
+              </article>
+              <article class="skill-card">
+                <i class="fa-solid fa-code"></i>
+                <div>
+                  <h4>Tailwind CSS</h4>
+                  <p>Utility-first styling.</p>
+                </div>
+              </article>
+            </div>
+
+            <h3 class="skills-category">Tools & Others</h3>
+            <div class="skills-grid">
+              <article class="skill-card">
+                <i class="fa-solid fa-code"></i>
+                <div>
+                  <h4>Git & GitHub</h4>
+                  <p>Version control & collaboration.</p>
+                </div>
+              </article>
+              <article class="skill-card">
+                <i class="fa-solid fa-code"></i>
+                <div>
+                  <h4>Figma</h4>
+                  <p>UI design & prototyping.</p>
+                </div>
+              </article>
+              <article class="skill-card">
+                <i class="fa-solid fa-code"></i>
+                <div>
+                  <h4>Webpack / Vite</h4>
+                  <p>Bundlers & dev tooling.</p>
+                </div>
+              </article>
+              <article class="skill-card">
+                <i class="fa-solid fa-code"></i>
+                <div>
+                  <h4>Testing</h4>
+                  <p>Jest, React Testing Library.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Experience Timeline -->
+          <div class="experience-column">
+            <h3>Experience Timeline</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <span class="timeline-date">2023 – Present</span>
+                  <h4>Computer Engineering Student</h4>
+                  <p>
+                    Hanoi University of Science and Technology
+                  </p>
+                  <ul>
+                    <li>2nd Prize in the 3rd Quarter SCIC - SoICT.</li>
+                    <li>Academic Encouragement Scholarship for Semester 2023.2</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <span class="timeline-date">2020 – 2023</span>
+                  <h4>Phu Xuyen A High School</h4>
+                  <p>
+                    Achievements
+                  </p>
+                  <ul>
+                    <li>28.7 score (A00) in the National High School Graduation Examination.</li>
+                    <li>76,68 score in TSA exam (HUST).</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /skills-layout -->
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <div class="container">
+        <header class="section-header">
+          <h2>Featured Projects</h2>
+          <p>
+            A selection of projects showcasing my experience with modern web technologies,
+            performance, and AIoT fields.
+          </p>
+        </header>
+
+        <div class="projects-grid">
+          <!-- Project Card 1 -->
+          <article class="project-card">
+            <div class="project-image placeholder-image">
+              <span>Project Screenshot</span>
+            </div>
+            <div class="project-content">
+              <h3>Portfolio Website</h3>
+              <p>
+                A modern, responsive portfolio built with React and styled-components, featuring
+                smooth animations and dark mode.
+              </p>
+              <div class="project-tags">
+                <span class="tag">React</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Styled Components</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                </a>
+                <a href="#" class="project-link">
+                  <i class="fa-brands fa-github"></i> Source Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 2 -->
+          <article class="project-card">
+            <div class="project-image placeholder-image">
+              <span>Project Screenshot</span>
+            </div>
+            <div class="project-content">
+              <h3>Dashboard Analytics</h3>
+              <p>
+                An admin dashboard with interactive charts, filtering, and role-based access
+                control built on Next.js.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Next.js</span>
+                <span class="tag">Tailwind</span>
+                <span class="tag">Chart.js</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                </a>
+                <a href="#" class="project-link">
+                  <i class="fa-brands fa-github"></i> Source Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 3 -->
+          <article class="project-card">
+            <div class="project-image placeholder-image">
+              <span>Project Screenshot</span>
+            </div>
+            <div class="project-content">
+              <h3>E-commerce UI Kit</h3>
+              <p>
+                A set of reusable components and patterns for e-commerce interfaces, focusing on
+                accessibility and mobile-first design.
+              </p>
+              <div class="project-tags">
+                <span class="tag">UI Design</span>
+                <span class="tag">Figma</span>
+                <span class="tag">CSS</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                </a>
+                <a href="#" class="project-link">
+                  <i class="fa-brands fa-github"></i> Source Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 4 (Extra) -->
+          <article class="project-card">
+            <div class="project-image placeholder-image">
+              <span>Project Screenshot</span>
+            </div>
+            <div class="project-content">
+              <h3>UI Component Library</h3>
+              <p>
+                A reusable component library with documentation, built with Storybook and
+                TypeScript.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Storybook</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Design Systems</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                </a>
+                <a href="#" class="project-link">
+                  <i class="fa-brands fa-github"></i> Source Code
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        <header class="section-header">
+          <h2>Contact</h2>
+          <p>
+            Interested in collaborating or have a project in mind? Feel free to reach out.
+          </p>
+        </header>
+
+        <div class="contact-content">
+          <div class="contact-main">
+            <h3>Email</h3>
+            <a href="mailto:youremail@example.com" class="contact-email">
+              lenghiahiep1509@gmail.com
+            </a>
+          </div>
+
+          <div class="contact-socials">
+            <h3>Find me online</h3>
+            <div class="social-links">
+              <a href="#" target="_blank" rel="noreferrer">
+                <i class="fa-brands fa-linkedin"></i>
+                <span>LinkedIn</span>
+              </a>
+              <a href="#" target="_blank" rel="noreferrer">
+                <i class="fa-brands fa-github"></i>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Developed by Le Nghia Hiep</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
-
