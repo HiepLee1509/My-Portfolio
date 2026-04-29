@@ -191,6 +191,28 @@ body {
   width: 100%;
 }
 
+/* CV Link Styling */
+.main-nav .cv-link {
+  color: #020617;
+  background: var(--accent);
+  font-weight: 600;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(100, 255, 218, 0.2);
+}
+
+.main-nav .cv-link::after {
+  display: none;
+}
+
+.main-nav .cv-link:hover {
+  background: var(--accent-strong);
+  color: #020617;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(100, 255, 218, 0.4);
+}
+
 /* ----------------------------------------
    HERO SECTION
 ---------------------------------------- */
