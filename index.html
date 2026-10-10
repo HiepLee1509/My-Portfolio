@@ -20,14 +20,24 @@
 </head>
 
 <body>
+  <!-- PCB Circuit Background & Electric Pulse Layering -->
+  <div class="pcb-bg-container" aria-hidden="true">
+    <div class="pcb-bg-image"></div>
+    <canvas id="pcbCanvas" class="pcb-canvas"></canvas>
+    <div class="pcb-bg-overlay"></div>
+  </div>
+
+  <!-- Custom Mouse Glow Trail -->
+  <div class="mouse-glow" id="mouseGlow" aria-hidden="true"></div>
+
   <!-- About Me Modal -->
   <div class="modal-overlay" id="aboutModalOverlay" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="about-modal-title">
       <button class="modal-close" id="aboutModalClose" aria-label="Close About Me">
         <i class="fa-solid fa-xmark"></i>
       </button>
-      <h2 id="about-modal-title">About Me</h2>
-      <p class="modal-intro">
+      <h2 id="about-modal-title" data-i18n="modal.title">About Me</h2>
+      <p class="modal-intro" data-i18n="modal.intro">
         I'm currently an IT Engineering student, but I thrive outside the typical tech bubble.
         Beyond my technical skills, I'm known for being highly dynamic and possessing excellent communication and soft
         skills, making me an effective collaborator.
@@ -37,8 +47,8 @@
       </p>
 
       <div class="modal-section">
-        <h3>Interests & Hobbies</h3>
-        <ul class="modal-list">
+        <h3 data-i18n="modal.hobbies_title">Interests & Hobbies</h3>
+        <ul class="modal-list" data-i18n="modal.hobbies_list">
           <li>🎤Singing </li>
           <li>🎸Playing Guitar </li>
           <li>📷Photography </li>
@@ -47,53 +57,53 @@
       </div>
 
       <div class="modal-section">
-        <h3>Fun Facts</h3>
-        <ul class="modal-list">
+        <h3 data-i18n="modal.facts_title">Fun Facts</h3>
+        <ul class="modal-list" data-i18n="modal.facts_list">
           <li>⬆️Height: 1.80m</li>
           <li>💪Weight: 75 kg</li>
         </ul>
       </div>
 
       <div class="modal-section">
-        <h3>Mini Gallery</h3>
+        <h3 data-i18n="modal.gallery_title">Mini Gallery</h3>
         <div class="modal-gallery">
           <div class="modal-gallery-item">
-            <img src="images\20261.jpg" alt="hehe test" class="gallery-image">
+            <img src="images/myself/20261.jpg" alt="hehe test" class="gallery-image">
           </div>
           <div class="modal-gallery-item">
-            <img src="images\20262.jpg" alt="hehe test" class="gallery-image">
+            <img src="images/myself/20262.jpg" alt="hehe test" class="gallery-image">
           </div>
           <div class="modal-gallery-item">
-            <img src="images\20263.jpg" alt="hehe test" class="gallery-image">
+            <img src="images/myself/20263.jpg" alt="hehe test" class="gallery-image">
           </div>
           <div class="modal-gallery-item">
-            <img src="images\20264.jpg" alt="hehe test" class="gallery-image">
+            <img src="images/myself/20264.jpg" alt="hehe test" class="gallery-image">
           </div>
 
 
           <div class="modal-gallery-item">
-            <img src="images\SSU.jpg" alt="hehe test" class="gallery-image">
+            <img src="images/myself/SSU.jpg" alt="hehe test" class="gallery-image">
           </div>
           <div class="modal-gallery-item">
-            <img src="images\C2 SSD.jpg" alt="hehe test" class="gallery-image">
+            <img src="images/myself/C2 SSD.jpg" alt="hehe test" class="gallery-image">
           </div>
           <div class="modal-gallery-item">
-            <img src="images\Chùa Chanh 1.jpg" alt="hehe test" class="gallery-image">
+            <img src="images/myself/Chùa Chanh 1.jpg" alt="hehe test" class="gallery-image">
           </div>
           <div class="modal-gallery-item">
-            <img src="images\Chùa Chanh.jpg" alt="hehe test" class="gallery-image">
+            <img src="images/myself/Chùa Chanh.jpg" alt="hehe test" class="gallery-image">
           </div>
           <div class="modal-gallery-item">
-            <img src="images\SCG_studio.jpg" alt="hehe test" class="gallery-image">
+            <img src="images/myself/SCG_studio.jpg" alt="hehe test" class="gallery-image">
           </div>
           <div class="modal-gallery-item">
-            <img src="images\Tam đảo.jpg" alt="hehe test" class="gallery-image">
+            <img src="images/myself/Tam đảo.jpg" alt="hehe test" class="gallery-image">
           </div>
           <div class="modal-gallery-item">
-            <img src="images\paparazzi.jpg" alt="hehe test" class="gallery-image">
+            <img src="images/myself/paparazzi.jpg" alt="hehe test" class="gallery-image">
           </div>
           <div class="modal-gallery-item">
-            <img src="images\scg_home.jpg" alt="hehe test" class="gallery-image">
+            <img src="images/myself/scg_home.jpg" alt="hehe test" class="gallery-image">
           </div>
         </div>
       </div>
@@ -105,15 +115,36 @@
     <div class="container header-inner">
       <button class="about-trigger" id="aboutTrigger">
         <i class="fa-regular fa-user"></i>
-        <span>About Me</span>
+        <span data-i18n="nav.about">About Me</span>
       </button>
 
       <nav class="main-nav">
         <ul>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="Le_Nghia_Hiep_s_Resume_IoT.pdf" target="_blank" rel="noopener" class="cv-link">CV</a></li>
+          <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+          <li><a href="Le_Nghia_Hiep_s_Resume_IoT.pdf" target="_blank" rel="noopener" class="cv-link" data-i18n="nav.cv">CV</a></li>
+          <li class="lang-switch-item">
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Language Switcher">
+              <button class="lang-btn" data-lang="vi" type="button" aria-label="Tiếng Việt">
+                <svg class="flag-icon" viewBox="0 0 640 480" width="18" height="13" aria-hidden="true">
+                  <rect width="640" height="480" fill="#da251d"/>
+                  <polygon fill="#ffff00" points="320,84 357,198 477,198 380,268 417,382 320,312 223,382 260,268 163,198 283,198"/>
+                </svg>
+                <span>VIE</span>
+              </button>
+              <button class="lang-btn active" data-lang="en" type="button" aria-label="English">
+                <svg class="flag-icon" viewBox="0 0 640 480" width="18" height="13" aria-hidden="true">
+                  <path fill="#012169" d="M0 0h640v480H0z"/>
+                  <path fill="#FFF" d="m75 0 245 180L565 0h75v60L435 240l205 180v60h-75L320 300 75 480H0v-60l205-180L0 60V0h75z"/>
+                  <path fill="#C8102E" d="m424 288 216 156v36h-48L376 324l48-36zM640 0v12L448 156l48 36L640 36V0zm-424 192L0 36V0h48l216 156-48 36zM0 480v-12l192-144-48-36L0 444v36z"/>
+                  <path fill="#FFF" d="M240 0h160v480H240zM0 160h640v160H0z"/>
+                  <path fill="#C8102E" d="M272 0h96v480h-96zM0 192h640v96H0z"/>
+                </svg>
+                <span>ENG</span>
+              </button>
+            </div>
+          </li>
         </ul>
       </nav>
     </div>
@@ -125,9 +156,9 @@
     <section id="home" class="section hero">
       <div class="container hero-grid">
         <div class="hero-text">
-          <p class="hero-kicker">Computer Engineering Student</p>
-          <h1>Hi👋,<br> I’m <span class="accent">Le Nghia Hiep</span></h1>
-          <p class="hero-subtitle">
+          <p class="hero-kicker" data-i18n="hero.kicker">Computer Engineering Student</p>
+          <h1 data-i18n="hero.title">Hi👋,<br> I’m <span class="accent">Le Nghia Hiep</span></h1>
+          <p class="hero-subtitle" data-i18n="hero.subtitle">
             A Computer Engineering student with a robust systematic mindset and a passion for core technologies.
             I possess a solid foundation in Data Structures & Algorithms, Operating Systems, and Computer Architecture,
             with a specialized focus on software performance optimization.
@@ -137,30 +168,34 @@
           </p>
 
           <div class="hero-cta">
-            <a href="#projects" class="btn btn-primary">
-              <span>View Projects</span> <span class="emoji">🚀</span>
+            <a href="#projects" class="btn-beam">
+              <span class="btn-beam-content" data-i18n="hero.btn_projects">
+                <span>View Projects</span> <span class="emoji">🚀</span>
+              </span>
             </a>
-            <a href="#contact" class="btn btn-outline">
-              <span>Contact</span> <span class="emoji">📧</span>
+            <a href="#contact" class="btn-beam">
+              <span class="btn-beam-content" data-i18n="hero.btn_contact">
+                <span>Contact</span> <span class="emoji">📧</span>
+              </span>
             </a>
           </div>
 
           <div class="hero-meta">
-            <span><i class="fa-solid fa-building-columns"></i> Hanoi University of Science and Technology</span>
-            <span><i class="fa-solid fa-location-dot"></i> Hanoi, VietNam </span>
+            <span data-i18n="hero.school"><i class="fa-solid fa-building-columns"></i> Hanoi University of Science and Technology</span>
+            <span data-i18n="hero.location"><i class="fa-solid fa-location-dot"></i> Hanoi, VietNam </span>
           </div>
         </div>
 
         <div class="hero-image">
           <div class="hero-image-card">
-            <img src="images/my_pr5_image.jpg" alt="Profile placeholder" class="hero-img" />
+            <img src="images/myself/my_pr5_image.jpg" alt="Profile placeholder" class="hero-img" />
             <div class="hero-image-badge">
               <i class="fa-solid fa-code"></i>
-              <span>Computer Engineering Student</span>
+              <span data-i18n="hero.badge_student">Computer Engineering Student</span>
             </div>
             <div class="hero-cpa-badge">
               <span class="cpa-value">3.60</span>
-              <span class="cpa-label">CPA Score</span>
+              <span class="cpa-label" data-i18n="hero.badge_cpa">CPA Score</span>
             </div>
           </div>
         </div>
@@ -171,8 +206,8 @@
     <section id="skills" class="section section-alt">
       <div class="container">
         <header class="section-header">
-          <h2>Skills & Experience</h2>
-          <p>
+          <h2 data-i18n="skills.header_title">Skills & Experience</h2>
+          <p data-i18n="skills.header_desc">
             A blend of embedded systems programming, AI algorithms, web/app development.
           </p>
         </header>
@@ -180,7 +215,7 @@
         <div class="skills-layout">
           <!-- Skills Grid -->
           <div class="skills-column">
-            <h3 class="skills-category">Core Languages</h3>
+            <h3 class="skills-category" data-i18n="skills.cat_core">Core Languages</h3>
             <div class="skills-grid">
               <article class="skill-card">
                 <i class="fa-solid fa-code"></i>
@@ -203,9 +238,10 @@
                     /JS/Node.js</h4>
                   <p>Building IoT Dashboards, Real-time data visualization</p>
                 </div>
+              </article>
             </div>
 
-            <h3 class="skills-category">Embedded Systems & Hardware</h3>
+            <h3 class="skills-category" data-i18n="skills.cat_embedded">Embedded Systems & Hardware</h3>
             <div class="skills-grid">
               <article class="skill-card">
                 <i class="fa-solid fa-code"></i>
@@ -229,7 +265,7 @@
               </article>
             </div>
 
-            <h3 class="skills-category">Networking & Protocols</h3>
+            <h3 class="skills-category" data-i18n="skills.cat_network">Networking & Protocols</h3>
             <div class="skills-grid">
               <article class="skill-card">
                 <i class="fa-solid fa-code"></i>
@@ -254,7 +290,7 @@
               </article>
             </div>
 
-            <h3 class="skills-category">Tools & Others</h3>
+            <h3 class="skills-category" data-i18n="skills.cat_tools">Tools & Others</h3>
             <div class="skills-grid">
               <article class="skill-card">
                 <i class="fa-solid fa-code"></i>
@@ -279,7 +315,7 @@
               </article>
             </div>
 
-            <h3 class="skills-category">English</h3>
+            <h3 class="skills-category" data-i18n="skills.cat_english">English</h3>
             <div class="skills-grid">
               <article class="skill-card">
                 <i class="fa-solid fa-code"></i>
@@ -293,18 +329,19 @@
 
           <!-- Experience Timeline -->
           <div class="experience-column">
-            <h3>Experience Timeline</h3>
+            <h3 data-i18n="timeline.title">Experience Timeline</h3>
             <div class="timeline">
               <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                  <span class="timeline-date">2023 – Present</span>
-                  <h4>Computer Engineering</h4>
-                  <p>
+                  <span class="timeline-date" data-i18n="timeline.item1_date">2023 – Present</span>
+                  <h4 data-i18n="timeline.item1_major">Computer Engineering</h4>
+                  <p data-i18n="timeline.item1_school">
                     Hanoi University of Science and Technology
                   </p>
-                  <ul>
+                  <ul data-i18n="timeline.item1_list">
                     <li>GPA: 3.60</li>
+                    <li>Top10 Kawai Business Startup 2026</li>
                     <li>2nd Prize in the 3rd Quarter SCIC - SoICT</li>
                     <li>Academic Achievement scholarship of SoICT</li>
                     <li>Lotte Scholarship</li>
@@ -316,12 +353,12 @@
               <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                  <span class="timeline-date">2020 – 2023</span>
-                  <h4>Phu Xuyen A High School</h4>
-                  <p>
+                  <span class="timeline-date" data-i18n="timeline.item2_date">2020 – 2023</span>
+                  <h4 data-i18n="timeline.item2_school">Phu Xuyen A High School</h4>
+                  <p data-i18n="timeline.item2_achieve">
                     Achievements
                   </p>
-                  <ul>
+                  <ul data-i18n="timeline.item2_list">
                     <li>28.7 score (A00) in the High School Graduation Examination.</li>
                     <li>76,68 score in TSA exam (HUST).</li>
                   </ul>
@@ -337,8 +374,8 @@
     <section id="projects" class="section">
       <div class="container">
         <header class="section-header">
-          <h2>Featured Projects</h2>
-          <p>
+          <h2 data-i18n="projects.header_title">Featured Projects</h2>
+          <p data-i18n="projects.header_desc">
             A selection of projects showcasing my experience with modern web technologies,
             performance, and AIoT fields.
           </p>
@@ -348,11 +385,37 @@
           <!-- Project Card 1 -->
           <article class="project-card">
             <div class="project-image">
-              <img src="images/SmartClock.jpg" alt="SmartClock Project Screenshot" class="project-screenshot" />
+              <img src="images/Project image/Niro AI.jpg" alt="AI Voice Robot Project Screenshot"
+                class="project-screenshot" />
             </div>
             <div class="project-content">
-              <h3>SmartClock</h3>
-              <p>
+              <h3 data-i18n="project.voice_robot_title">AI Voice Robot</h3>
+              <p data-i18n="project.voice_robot_desc">
+                An interactive AI voice assistant built on ESP32-S3 using ESP-IDF. Integrates low-latency I2S audio streaming, real-time LCD facial expressions, and closed-loop motor control with ToF obstacle sensing. Designed with a custom buck&amp;boost power architecture for continuous performance.
+              </p>
+              <div class="project-tags">
+                <span class="tag">ESP32-S3</span>
+                <span class="tag">ESP-IDF</span>
+                <span class="tag">AI</span>
+                <span class="tag">C/C++</span>
+                <span class="tag">Hardware</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link" data-i18n="project.source_code">
+                  <i class="fa-brands fa-github"></i> Source Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 2 -->
+          <article class="project-card">
+            <div class="project-image">
+              <img src="images/Project image/SmartClock.jpg" alt="SmartClock Project Screenshot" class="project-screenshot" />
+            </div>
+            <div class="project-content">
+              <h3 data-i18n="project.smartclock_title">SmartClock</h3>
+              <p data-i18n="project.smartclock_desc">
                 A smart health clock system using ESP32-C3,
                 processing raw IR sensor data (PPG) through an AI Server for real-time health insights,
                 complete with an Android mobile companion app.
@@ -363,22 +426,23 @@
                 <span class="tag">Android - Kotlin</span>
               </div>
               <div class="project-links">
-                <a href="https://github.com/HiepLee1509/SmartClock" target="_blank" rel="noopener" class="project-link">
+                <a href="https://github.com/HiepLee1509/SmartClock" target="_blank" rel="noopener" class="project-link"
+                  data-i18n="project.source_code">
                   <i class="fa-brands fa-github"></i> Source Code
                 </a>
               </div>
             </div>
           </article>
 
-          <!-- Project Card 2 -->
+          <!-- Project Card 3 -->
           <article class="project-card">
             <div class="project-image">
-              <img src="images/Chatbot AI.jpg" alt="RAG-based University Query Chatbot Screenshot"
+              <img src="images/Project image/Chatbot AI.jpg" alt="RAG-based University Query Chatbot Screenshot"
                 class="project-screenshot" />
             </div>
             <div class="project-content">
-              <h3>RAG-based University Query Chatbot</h3>
-              <p>
+              <h3 data-i18n="project.chatbot_title">RAG-based University Query Chatbot</h3>
+              <p data-i18n="project.chatbot_desc">
                 An intelligent AI assistant designed to provide accurate, context-specific answers regarding university
                 information.
                 It implements the RAG technique to ground LLM responses in proprietary documentation, minimizing
@@ -391,21 +455,22 @@
               </div>
               <div class="project-links">
                 <a href="https://github.com/HiepLee1509/AI-chatbot-for-HUST-students" target="_blank" rel="noopener"
-                  class="project-link">
+                  class="project-link" data-i18n="project.source_code">
                   <i class="fa-brands fa-github"></i> Source Code
                 </a>
               </div>
             </div>
           </article>
 
-          <!-- Project Card 3 -->
+          <!-- Project Card 4 -->
           <article class="project-card">
             <div class="project-image">
-              <img src="images/Holter model.jpg" alt="Hybrid AI Model Project Screenshot" />
+              <img src="images/Project image/Holter model.jpg" alt="Hybrid AI Model Project Screenshot"
+                class="project-screenshot" />
             </div>
             <div class="project-content">
-              <h3>DL model for arrhythmia classification</h3>
-              <p>
+              <h3 data-i18n="project.arrhythmia_title">DL model for arrhythmia classification</h3>
+              <p data-i18n="project.arrhythmia_desc">
                 A cutting-edge deep learning model developed for the early detection and classification of abnormal
                 heart rhythms from ECG data.
                 The architecture combines 1D CNNs and LSTM for analyzing temporal dependencies.
@@ -417,7 +482,7 @@
               </div>
               <div class="project-links">
                 <a href="https://github.com/HiepLee1509/-Project-I-deep-learning-arrhythmia-classifier" target="_blank"
-                  rel="noopener" class="project-link">
+                  rel="noopener" class="project-link" data-i18n="project.source_code">
                   <i class="fa-brands fa-github"></i> Source Code
                 </a>
               </div>
@@ -431,22 +496,22 @@
     <section id="contact" class="section section-alt">
       <div class="container">
         <header class="section-header">
-          <h2>Contact</h2>
-          <p>
+          <h2 data-i18n="contact.header_title">Contact</h2>
+          <p data-i18n="contact.header_desc">
             Interested in collaborating or have a project in mind? Feel free to reach out.
           </p>
         </header>
 
         <div class="contact-content">
           <div class="contact-main">
-            <h3>Email</h3>
+            <h3 data-i18n="contact.email_title">Email</h3>
             <a href="mailto:lenghiahiep1509@gmail.com" class="contact-email">
               lenghiahiep1509@gmail.com
             </a>
           </div>
 
           <div class="contact-socials">
-            <h3>Find me online</h3>
+            <h3 data-i18n="contact.find_me">Find me online</h3>
             <div class="social-links">
               <a href="https://www.linkedin.com/in/hiep-le-nghia-k68-hust/" target="_blank" rel="noreferrer">
                 <i class="fa-brands fa-linkedin"></i>
@@ -470,7 +535,7 @@
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© <span id="year"></span> Developed by Le Nghia Hiep</p>
+      <p>© <span id="year"></span> <span data-i18n="footer.developed">Developed by Le Nghia Hiep</span></p>
     </div>
   </footer>
 
