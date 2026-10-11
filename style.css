@@ -495,28 +495,29 @@ body {
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #e0f2fe;
-  background: linear-gradient(135deg, rgba(14, 165, 233, 0.15) 0%, rgba(37, 99, 235, 0.12) 100%);
-  border: 1px solid rgba(56, 189, 248, 0.35);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 16px rgba(56, 189, 248, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  padding: 0.42rem 1.1rem;
+  color: #f0f9ff;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.18) 0%, rgba(37, 99, 235, 0.15) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 16px rgba(56, 189, 248, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  padding: 0.45rem 1.15rem;
   border-radius: 999px;
   margin-bottom: 1.25rem;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   width: fit-content;
   position: relative;
   overflow: hidden;
+  animation: kickerGlowBreath 3.5s ease-in-out infinite alternate;
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .hero-kicker:hover {
   transform: translateY(-2px);
-  border-color: rgba(0, 240, 255, 0.7);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5), 0 0 24px rgba(0, 240, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-color: rgba(0, 240, 255, 0.85);
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.55), 0 0 28px rgba(0, 240, 255, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
-/* Điểm sáng tín hiệu mạch điện nhấp nháy (Live Embedded Hardware indicator) */
+/* Điểm sáng tín hiệu mạch điện nhấp nháy (Live Hardware Indicator) */
 .hero-kicker::before {
   content: "";
   display: inline-block;
@@ -524,14 +525,77 @@ body {
   height: 8px;
   border-radius: 50%;
   background-color: #00f0ff;
-  box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.7), 0 0 10px #00f0ff;
-  animation: kickerLivePulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.8), 0 0 10px #00f0ff;
+  animation: kickerLivePulse 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   flex-shrink: 0;
+  z-index: 2;
+}
+
+/* Dải quét ánh sáng vi mạch cyan & ánh kim: Chu kỳ 3s (quét 2s, nghỉ 1s) */
+.hero-kicker::after {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -150%;
+  width: 65%;
+  height: 240%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 20%,
+    rgba(0, 240, 255, 0.75) 42%,
+    rgba(255, 235, 150, 0.95) 52%,
+    rgba(255, 255, 255, 0.8) 58%,
+    rgba(0, 240, 255, 0.5) 68%,
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+  animation: kickerShineSweep 3s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes kickerGlowBreath {
+  0% {
+    border-color: rgba(56, 189, 248, 0.35);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4), 0 0 12px rgba(56, 189, 248, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+  50% {
+    border-color: rgba(0, 240, 255, 0.7);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45), 0 0 22px rgba(0, 240, 255, 0.4), 0 0 35px rgba(37, 99, 235, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    border-color: rgba(56, 189, 248, 0.35);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4), 0 0 12px rgba(56, 189, 248, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* Quét qua toàn bộ chữ trong 2s (0% -> 66.67%), sau đó nghỉ 1s (66.67% -> 100%) */
+@keyframes kickerShineSweep {
+  0% {
+    left: -150%;
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  64% {
+    left: 170%;
+    opacity: 1;
+  }
+  66.67% {
+    left: 170%;
+    opacity: 0;
+  }
+  100% {
+    left: 170%;
+    opacity: 0;
+  }
 }
 
 @keyframes kickerLivePulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.7), 0 0 8px #00f0ff;
+    box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.8), 0 0 8px #00f0ff;
     transform: scale(0.95);
   }
   70% {
