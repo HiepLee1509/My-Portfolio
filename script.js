@@ -110,6 +110,7 @@
       "project.chatbot_title": "RAG-based University Query Chatbot",
       "project.chatbot_desc": "Trợ lý AI hỗ trợ giải đáp quy chế, thông tin đào tạo đại học ứng dụng kỹ thuật RAG (Retrieval-Augmented Generation). Mô hình đối chiếu dữ liệu với tài liệu gốc thông qua truy vấn vector, đảm bảo câu trả lời luôn chuẩn xác và không bị bịa đặt thông tin (hallucination).",
       "project.source_code": '<i class="fa-brands fa-github"></i> Mã nguồn',
+      "project.demo_link": '<i class="fa-solid fa-arrow-up-right-from-square"></i> Link demo',
 
       "contact.header_title": "Liên hệ",
       "contact.header_desc": "Tôi đang tìm kiếm cơ hội làm việc toàn thời gian ở vị trí Kỹ sư Firmware & Hệ thống Nhúng. Rất mong có cơ hội được kết nối và trao đổi cùng bạn!",
@@ -172,6 +173,7 @@
       "project.chatbot_title": "RAG-based University Query Chatbot",
       "project.chatbot_desc": "An AI assistant for university policy lookup using Retrieval-Augmented Generation (RAG). Grounds LLM answers in official documentation via vector search to eliminate hallucinations and provide accurate information.",
       "project.source_code": '<i class="fa-brands fa-github"></i> Source Code',
+      "project.demo_link": '<i class="fa-solid fa-arrow-up-right-from-square"></i> Demo Link',
 
       "contact.header_title": "Contact",
       "contact.header_desc": "I'm actively seeking full-time Firmware & Embedded Systems Engineering roles. Feel free to connect with me!",
